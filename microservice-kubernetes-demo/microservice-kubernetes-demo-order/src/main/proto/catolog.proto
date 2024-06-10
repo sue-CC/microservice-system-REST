@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.ewolff.microservice.order.clients";
+option java_outer_classname = "CustomerServiceProto";
+
+service CatalogService {
+  rpc GetItem (ItemRequest) returns (ItemResponse);
+  rpc GetAllItems (EmptyRequest) returns (ItemListResponse);
+}
+
+message ItemRequest {
+  int64 itemId = 1;
+}
+
+message ItemResponse {
+  Item item = 1;
+}
+
+message EmptyRequest {}
+
+message ItemListResponse {
+  repeated Item items = 1;
+}
+
+message Item {
+  int64 itemId = 1;
+  string name = 2;
+  double price = 3;
+}

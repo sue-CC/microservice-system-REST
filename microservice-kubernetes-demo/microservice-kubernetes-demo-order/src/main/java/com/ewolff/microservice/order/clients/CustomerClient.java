@@ -43,6 +43,7 @@ public class CustomerClient {
 		this.customerServicePort = customerServicePort;
 	}
 
+	// use customerid to check the validation of the customer
 	public boolean isValidCustomerId(long customerId) {
 		RestTemplate restTemplate = new RestTemplate();
 		try {
